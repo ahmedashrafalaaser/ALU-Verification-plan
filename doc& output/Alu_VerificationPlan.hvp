@@ -1,0 +1,72 @@
+
+plan "ALU Verification PLAn";
+
+
+    feature Basics;
+        owner = "ahmed\n";
+        feature Alu_rstn;
+            measure Group Measure_2;
+                source = "group: $unit::subscriber::g2.t4.rst_n";
+            endmeasure
+        endfeature
+    endfeature
+    feature Advanced;
+        owner = "youssef\n";
+        feature alu_in_a;
+            measure Group Measure_2;
+                source = "group: $unit::subscriber::g1_tgl.al_in_a0", "group: $unit::subscriber::g1_tgl.al_in_a1", "group: $unit::subscriber::g1_tgl.al_in_a2", "group: $unit::subscriber::g1_tgl.al_in_a3", "group: $unit::subscriber::g1_tgl.al_in_a4", "group: $unit::subscriber::g1_tgl.al_in_a5", "group: $unit::subscriber::g1_tgl.al_in_a6", "group: $unit::subscriber::g1_tgl.al_in_a7";
+            endmeasure
+        endfeature
+        feature alu_in_b;
+            measure Group Measure_1;
+                source = "group: $unit::subscriber::g1_tgl.al_in_b0", "group: $unit::subscriber::g1_tgl.al_in_b1", "group: $unit::subscriber::g1_tgl.al_in_b2", "group: $unit::subscriber::g1_tgl.al_in_b3", "group: $unit::subscriber::g1_tgl.al_in_b4", "group: $unit::subscriber::g1_tgl.al_in_b5", "group: $unit::subscriber::g1_tgl.al_in_b6", "group: $unit::subscriber::g1_tgl.al_in_b7";
+            endmeasure
+        endfeature
+        feature alu_enable;
+            measure Group Measure_2;
+                source = "group: $unit::subscriber::g1_tgl.alu_enable";
+            endmeasure
+        endfeature
+        feature alu_enable_a;
+            measure Group Measure_2;
+                source = "group: $unit::subscriber::g1_tgl.alu_enable_a";
+            endmeasure
+        endfeature
+        feature alu_enable_b;
+            measure Group Measure_1;
+                source = "group: $unit::subscriber::g1_tgl.alue_enable_b";
+            endmeasure
+        endfeature
+        feature alu_op_a;
+            measure Group Measure_1;
+                source = "group: $unit::subscriber::g3.op_a";
+            endmeasure
+        endfeature
+        feature alu_op_b;
+            measure Group Measure_1;
+                source = "group: $unit::subscriber::g3.op_b";
+            endmeasure
+        endfeature
+        feature alu_irq_clr;
+            measure Group Measure_1;
+                source = "group: $unit::subscriber::g2.t4.alu_irq_clr";
+            endmeasure
+        endfeature
+    endfeature
+    feature Outputs;
+        feature alu_out;
+            owner = "ahmed\n";
+            test.expected = 0;
+            measure Group Measure_1;
+                source = "group: $unit::subscriber::g1_tgl.alu_out0", "group: $unit::subscriber::g1_tgl.alu_out1", "group: $unit::subscriber::g1_tgl.alu_out2", "group: $unit::subscriber::g1_tgl.alu_out3", "group: $unit::subscriber::g1_tgl.alu_out4", "group: $unit::subscriber::g1_tgl.alu_out5", "group: $unit::subscriber::g1_tgl.alu_out6", "group: $unit::subscriber::g1_tgl.alu_out7";
+            endmeasure
+        endfeature
+        feature alu_irq;
+            owner = "youssef\n";
+            measure Group Measure_3;
+                source = "group: $unit::subscriber::g2.t4.alu_irq";
+            endmeasure
+        endfeature
+    endfeature
+endplan
+

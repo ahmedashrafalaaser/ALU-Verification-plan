@@ -1,0 +1,4 @@
+vcs Counter.v +autoprotect
+vcs -cm line+cond+tgl+branch+fsm -R regfile.v regfile_tb.v -o group2
+urg -dir group2.vdb -format text
+
